@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FIRME - S26シリーズ 発売記念フェア | MYWAYSMART</title>
+<title>FIRME - Galaxy S26 発売記念フェア | MYWAYSMART</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -31,17 +31,7 @@
     font-family: 'Orbitron', sans-serif;
   }
 
-  .font-zen {
-    font-family: 'Zen Maru Gothic', sans-serif;
-  }
-
   /* ========== オーロラ背景アニメーション ========== */
-  @keyframes aurora-rotate {
-    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
-    50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.2); }
-    100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
-  }
-
   @keyframes aurora-pulse {
     0%, 100% { opacity: 0.4; transform: scale(1); }
     50% { opacity: 0.7; transform: scale(1.1); }
@@ -72,11 +62,6 @@
   }
 
   @keyframes glow-pulse {
-    0%, 100% { filter: drop-shadow(0 0 20px rgba(192, 192, 192, 0.5)) drop-shadow(0 0 40px rgba(192, 192, 192, 0.3)); }
-    50% { filter: drop-shadow(0 0 30px rgba(192, 192, 192, 0.8)) drop-shadow(0 0 60px rgba(192, 192, 192, 0.5)); }
-  }
-
-  @keyframes border-glow {
     0%, 100% { border-color: rgba(192, 192, 192, 0.3); box-shadow: 0 0 20px rgba(192, 192, 192, 0.2), inset 0 0 20px rgba(192, 192, 192, 0.05); }
     50% { border-color: rgba(192, 192, 192, 0.6); box-shadow: 0 0 40px rgba(192, 192, 192, 0.4), inset 0 0 30px rgba(192, 192, 192, 0.1); }
   }
@@ -84,17 +69,6 @@
   @keyframes text-shimmer {
     0% { background-position: -200% center; }
     100% { background-position: 200% center; }
-  }
-
-  @keyframes bounce-in {
-    0% { transform: scale(0); opacity: 0; }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); opacity: 1; }
-  }
-
-  @keyframes slide-up {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
   }
 
   @keyframes rotate-border {
@@ -107,16 +81,12 @@
     50% { opacity: 1; transform: scale(1) rotate(180deg); }
   }
 
-  .aurora-rotate { animation: aurora-rotate 30s linear infinite; }
   .aurora-pulse { animation: aurora-pulse 4s ease-in-out infinite; }
   .aurora-drift-1 { animation: aurora-drift-1 20s ease-in-out infinite; }
   .aurora-drift-2 { animation: aurora-drift-2 25s ease-in-out infinite; }
   .animate-shimmer { animation: shimmer 3s linear infinite; }
   .animate-float { animation: float 6s ease-in-out infinite; }
   .animate-glow { animation: glow-pulse 3s ease-in-out infinite; }
-  .animate-border-glow { animation: border-glow 3s ease-in-out infinite; }
-  .animate-bounce-in { animation: bounce-in 0.6s ease-out forwards; }
-  .animate-slide-up { animation: slide-up 0.8s ease-out forwards; }
   .rotate-border { animation: rotate-border 10s linear infinite; }
 
   /* 背景コンテナ */
@@ -192,27 +162,6 @@
     background: white;
     border-radius: 50%;
     animation: spark 3s ease-in-out infinite;
-  }
-
-  /* 光の線 */
-  .light-rays {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
-    opacity: 0.1;
-  }
-
-  .light-ray {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 2px;
-    height: 200%;
-    background: linear-gradient(to bottom, transparent, rgba(192, 192, 192, 0.5), transparent);
-    transform-origin: center;
   }
 
   /* ========== ヘッダー ========== */
@@ -416,7 +365,7 @@
       rgba(168, 168, 168, 0.1),
       rgba(192, 192, 192, 0.05));
     border: 2px solid rgba(192, 192, 192, 0.5);
-    animation: border-glow 3s ease-in-out infinite;
+    animation: glow-pulse 3s ease-in-out infinite;
   }
 
   .coupon-card::before {
@@ -480,7 +429,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: none;
     filter: drop-shadow(0 0 20px rgba(192, 192, 192, 0.5));
   }
 
@@ -705,7 +653,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    position: relative;
   }
 
   .section-subtitle {
@@ -803,7 +750,6 @@
     z-index: 1;
   }
 
-  /* 3位以下のバッジ色 */
   .rank-badge.silver .rank-badge-inner {
     background: linear-gradient(135deg, #C0C0C0, #A8A8A8);
     box-shadow: 0 4px 20px rgba(192, 192, 192, 0.5);
@@ -1010,13 +956,6 @@
     }
   }
 
-  /* ========== アニメーション遅延 ========== */
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
-  .delay-3 { animation-delay: 0.3s; }
-  .delay-4 { animation-delay: 0.4s; }
-  .delay-5 { animation-delay: 0.5s; }
-
   /* ========== カスタムスクロールバー ========== */
   ::-webkit-scrollbar {
     width: 8px;
@@ -1073,13 +1012,14 @@
         </div>
 
         <h1 class="hero-title">
-          <span class="main">S26 SILVER</span>
-          <span class="sub">シルバーメタリックオパール</span>
+          <span class="main">GALAXY S26</span>
+          <span class="sub">発売記念フェア</span>
         </h1>
 
         <p class="hero-description">
-          ダイハツ純正カラーコードS26がついに登場！<br>
-          車のキズ補修からフル塗装まで、プロ仕様の塗料をご家庭で手軽に使用できます。
+          Samsung Galaxy S26がついに登場！<br>
+          人気ケースが勢揃い。クリアケースから耐衝撃、<br>
+          こだわりのレザーケースまで、あなたのS26を彩ります。
         </p>
 
         <!-- クーポン -->
@@ -1093,7 +1033,7 @@
               </div>
               <span class="coupon-discount"><small>50%</small>OFF</span>
             </div>
-            <p class="coupon-conditions">S26シリーズ全品対象</p>
+            <p class="coupon-conditions">Galaxy S26ケース全品対象</p>
             <a href="https://coupon.rakuten.co.jp/getCoupon?getkey=WlU5VS1OUzA5LVJCN00tRklZUQ--" class="coupon-button">クーポンを取得</a>
             <p class="coupon-time">02/25 20:00 ~ 21:59</p>
           </div>
@@ -1107,7 +1047,7 @@
               </div>
               <span class="coupon-discount"><small>10%</small>OFF</span>
             </div>
-            <p class="coupon-conditions">S26シリーズ全品対象</p>
+            <p class="coupon-conditions">Galaxy S26ケース全品対象</p>
             <a href="https://coupon.rakuten.co.jp/getCoupon?getkey=SjVTSC1YWkxULUpIVlEtSktVRQ--" class="coupon-button">クーポンを取得</a>
             <p class="coupon-time">02/20 15:00 ~ 03/15 23:59</p>
           </div>
@@ -1128,11 +1068,11 @@
             <div class="stat-card">
               <div class="stat-icon-wrapper">
                 <svg viewBox="0 0 24 24" fill="#C0C0C0">
-                  <path d="M19.5,2H4.5A2.5,2.5,0,0,0,2,4.5v2A5.5,5.5,0,0,0,7.5,12v5H4a1,1,0,0,0,0,2H20a1,1,0,0,0,0-2H16.5V12A5.5,5.5,0,0,0,22,6.5v-2A2.5,2.5,0,0,0,19.5,2ZM4,6.5A3.5,3.5,0,0,1,7.5,3,3.45,3.45,0,0,1,9,3.28V8.45A5.46,5.46,0,0,0,4,6.5ZM20,6.5A5.46,5.46,0,0,0,15,8.45V3.28A3.45,3.45,0,0,1,16.5,3,3.5,3.5,0,0,1,20,6.5Z"/>
+                  <path d="M17 1H7C5.343 1 4 2.343 4 4v16c0 1.657 1.343 3 3 3h10c1.657 0 3-1.343 3-3V4c0-1.657-1.343-3-3-3zm1 19c0 .551-.448 1-1 1H7c-.552 0-1-.449-1-1V4c0-.551.448-1 1-1h10c.552 0 1 .449 1 1v16z"/>
                 </svg>
               </div>
-              <p class="stat-value">ダイハツ<br/>純正</p>
-              <p class="stat-label">カラーコード</p>
+              <p class="stat-value">Galaxy<br/>S26</p>
+              <p class="stat-label">対応ケース</p>
             </div>
             <div class="stat-card">
               <div class="stat-icon-wrapper">
@@ -1167,305 +1107,401 @@
     <section class="section">
       <div class="section-header">
         <span class="section-tag">NEW ARRIVAL</span>
-        <h2 class="section-title">新着 <span class="highlight">ITEMS</span></h2>
-        <p class="section-subtitle">S26シリーズがついに登場！プロ仕様の塗料をご家庭で手軽に</p>
+        <h2 class="section-title">新着 <span class="highlight">CASES</span></h2>
+        <p class="section-subtitle">Galaxy S26対応ケースが続々登場！最新モデルをプロテクト</p>
       </div>
 
       <div class="product-grid">
-        <a href="https://item.rakuten.co.jp/mywaysmart/S26-300ml/" class="product-card">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-case" class="product-card">
           <span class="new-badge">NEW</span>
           <div class="rank-badge"><div class="rank-badge-inner"><span>1</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/s26-300ml.jpg" alt="S26 シルバーメタリックオパール 300ml" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear.jpg" alt="Galaxy S26 クリアケース" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">純正色</span>
-              <span class="product-tag">300ml</span>
+              <span class="product-tag">クリア</span>
+              <span class="product-tag">薄型</span>
             </div>
-            <h3 class="product-name">ダイハツ S26 シルバーメタリックオパール</h3>
+            <h3 class="product-name">Galaxy S26 クリアケース（薄型0.5mm）</h3>
+            <p class="product-price"><small>¥</small>980</p>
+            <div class="product-action">商品を見る</div>
+          </div>
+        </a>
+
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-case" class="product-card">
+          <span class="new-badge">NEW</span>
+          <div class="rank-badge"><div class="rank-badge-inner"><span>2</span></div></div>
+          <div class="product-image">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock.jpg" alt="Galaxy S26 耐衝撃ケース" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
+            <span class="free-shipping-badge">送料無料</span>
+          </div>
+          <div class="product-info">
+            <div class="product-tags">
+              <span class="product-tag">耐衝撃</span>
+              <span class="product-tag">Military</span>
+            </div>
+            <h3 class="product-name">Galaxy S26 耐衝撃ケース（ミリタリー級）</h3>
             <p class="product-price"><small>¥</small>1,980</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/S26-spray/" class="product-card">
-          <span class="new-badge">NEW</span>
-          <div class="rank-badge"><div class="rank-badge-inner"><span>2</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/s26-spray.jpg" alt="S26 スプレー缶 420ml" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
-            <span class="free-shipping-badge">送料無料</span>
-          </div>
-          <div class="product-info">
-            <div class="product-tags">
-              <span class="product-tag">スプレー</span>
-              <span class="product-tag">420ml</span>
-            </div>
-            <h3 class="product-name">ダイハツ S26 スプレー缶</h3>
-            <p class="product-price"><small>¥</small>2,480</p>
-            <div class="product-action">商品を見る</div>
-          </div>
-        </a>
-
-        <a href="https://item.rakuten.co.jp/mywaysmart/S26-set/" class="product-card">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-case" class="product-card">
           <span class="new-badge">NEW</span>
           <div class="rank-badge"><div class="rank-badge-inner"><span>3</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/s26-set.jpg" alt="S26 補修塗料セット" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather.jpg" alt="Galaxy S26 レザーケース" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">セット</span>
-              <span class="product-tag">お得</span>
+              <span class="product-tag">本革</span>
+              <span class="product-tag">上品</span>
             </div>
-            <h3 class="product-name">S26 補修塗料セット（ブラシ付き）</h3>
-            <p class="product-price"><small>¥</small>3,980</p>
+            <h3 class="product-name">Galaxy S26 レザーケース（本革仕様）</h3>
+            <p class="product-price"><small>¥</small>2,980</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/degreaser/" class="product-card">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-film-set" class="product-card">
           <div class="rank-badge silver"><div class="rank-badge-inner"><span>4</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/degreaser.jpg" alt="パーツクリーナー 脱脂剤" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-film.jpg" alt="Galaxy S26 フィルムセット" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">必須</span>
-              <span class="product-tag">脱脂</span>
+              <span class="product-tag">保護フィルム</span>
+              <span class="product-tag">2枚組</span>
             </div>
-            <h3 class="product-name">パーツクリーナー 脱脂剤</h3>
-            <p class="product-price"><small>¥</small>880</p>
+            <h3 class="product-name">Galaxy S26 ガラスフィルム（9H/2枚組）</h3>
+            <p class="product-price"><small>¥</small>780</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/S26-clear/" class="product-card">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-wallet-case" class="product-card">
           <span class="new-badge">NEW</span>
           <div class="rank-badge silver"><div class="rank-badge-inner"><span>5</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/s26-clear.jpg" alt="S26 クリアー" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-wallet.jpg" alt="Galaxy S26 ウォレットケース" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">仕上げ</span>
-              <span class="product-tag">保護</span>
+              <span class="product-tag">カード収納</span>
+              <span class="product-tag">自立</span>
             </div>
-            <h3 class="product-name">S26 クリアースプレー</h3>
+            <h3 class="product-name">Galaxy S26 ウォレットケース</h3>
             <p class="product-price"><small>¥</small>1,680</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/S26-full/" class="product-card">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-mag-case" class="product-card">
           <div class="rank-badge bronze"><div class="rank-badge-inner"><span>6</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/s26-full.jpg" alt="S26 フルセット" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-mag.jpg" alt="Galaxy S26 マグネットケース" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">フル</span>
-              <span class="product-tag">完全セット</span>
+              <span class="product-tag">MagSafe</span>
+              <span class="product-tag">充電対応</span>
             </div>
-            <h3 class="product-name">S26 フル塗装セット</h3>
-            <p class="product-price"><small>¥</small>6,980</p>
+            <h3 class="product-name">Galaxy S26 マグネットケース</h3>
+            <p class="product-price"><small>¥</small>2,280</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
       </div>
     </section>
 
-    <!-- 塗料ランキング -->
+    <!-- クリアケースランキング -->
     <section class="section">
       <div class="section-header">
         <span class="section-tag">RANKING</span>
-        <h2 class="section-title">塗料 <span class="highlight">TOP 5</span></h2>
-        <p class="section-subtitle">大切な愛車を守る、おすすめ塗料ランキング</p>
+        <h2 class="section-title">クリアケース <span class="highlight">TOP 5</span></h2>
+        <p class="section-subtitle">S26の美しさを活かす、人気クリアケースランキング</p>
       </div>
 
       <div class="product-grid">
-        <a href="https://item.rakuten.co.jp/mywaysmart/S26-300ml/" class="product-card">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-thin" class="product-card">
           <div class="rank-badge"><div class="rank-badge-inner"><span>1</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/s26-300ml.jpg" alt="S26 シルバーメタリックオパール">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-thin.jpg" alt="S26 超薄クリアケース">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
               <span class="product-tag">不動の人気</span>
-              <span class="product-tag">純正色</span>
+              <span class="product-tag">0.3mm</span>
             </div>
-            <h3 class="product-name">ダイハツ S26 シルバーメタリックオパール</h3>
-            <p class="product-price"><small>¥</small>1,980</p>
+            <h3 class="product-name">S26 超薄クリアケース（0.3mm）</h3>
+            <p class="product-price"><small>¥</small>880</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/S28-300ml/" class="product-card">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-soft" class="product-card">
           <div class="rank-badge silver"><div class="rank-badge-inner"><span>2</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/s28-300ml.jpg" alt="S28 フレッシュグリーンメタリック">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-soft.jpg" alt="S26 ソフトクリアケース">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
               <span class="product-tag">お買い得</span>
-              <span class="product-tag">NEW</span>
+              <span class="product-tag">TPU</span>
             </div>
-            <h3 class="product-name">ダイハツ S28 フレッシュグリーンメタリック</h3>
-            <p class="product-price"><small>¥</small>1,980</p>
+            <h3 class="product-name">S26 ソフトクリアケース</h3>
+            <p class="product-price"><small>¥</small>580</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/X10-300ml/" class="product-card">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-hard" class="product-card">
           <div class="rank-badge bronze"><div class="rank-badge-inner"><span>3</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/x10-300ml.jpg" alt="X10 アストラルブラッククリスタルマイカ">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-hard.jpg" alt="S26 ハードクリアケース">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">本体保護</span>
-              <span class="product-tag">高級感</span>
+              <span class="product-tag">ハード</span>
+              <span class="product-tag">傷付きにくい</span>
             </div>
-            <h3 class="product-name">ダイハツ X10 アストラルブラッククリスタルマイカ</h3>
-            <p class="product-price"><small>¥</small>1,980</p>
+            <h3 class="product-name">S26 ハードクリアケース（PC素材）</h3>
+            <p class="product-price"><small>¥</small>1,280</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/BA6-300ml/" class="product-card">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-mat" class="product-card">
           <div class="rank-badge"><div class="rank-badge-inner"><span>4</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/ba6-300ml.jpg" alt="BA6 ルミナスイエローメタリック">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-mat.jpg" alt="S26 マットクリアケース">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">耐久性</span>
-              <span class="product-tag">鮮やか</span>
+              <span class="product-tag">指紋防止</span>
+              <span class="product-tag">艶消し</span>
             </div>
-            <h3 class="product-name">ダイハツ BA6 ルミナスイエローメタリック</h3>
-            <p class="product-price"><small>¥</small>1,980</p>
+            <h3 class="product-name">S26 マットクリアケース</h3>
+            <p class="product-price"><small>¥</small>1,480</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/BF1-300ml/" class="product-card">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-edge" class="product-card">
           <div class="rank-badge silver"><div class="rank-badge-inner"><span>5</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/bf1-300ml.jpg" alt="BF1 ミストブルーマイカ">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-edge.jpg" alt="S26 エッジ保護クリア">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">深み</span>
-              <span class="product-tag">上品</span>
+              <span class="product-tag">エッジ保護</span>
+              <span class="product-tag">フルカバー</span>
             </div>
-            <h3 class="product-name">ダイハツ BF1 ミストブルーマイカ</h3>
-            <p class="product-price"><small>¥</small>1,980</p>
+            <h3 class="product-name">S26 エッジ保護クリアケース</h3>
+            <p class="product-price"><small>¥</small>1,680</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
       </div>
     </section>
 
-    <!-- スプレーランキング -->
+    <!-- 耐衝撃ケースランキング -->
     <section class="section">
       <div class="section-header">
         <span class="section-tag">RANKING</span>
-        <h2 class="section-title">スプレー <span class="highlight">TOP 5</span></h2>
-        <p class="section-subtitle">手軽に使えるスプレー缶ランキング</p>
+        <h2 class="section-title">耐衝撃ケース <span class="highlight">TOP 5</span></h2>
+        <p class="section-subtitle">大切なS26を守る、堅牢な耐衝撃ケース</p>
       </div>
 
       <div class="product-grid">
-        <a href="https://item.rakuten.co.jp/mywaysmart/S26-spray/" class="product-card">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-heavy" class="product-card">
           <div class="rank-badge"><div class="rank-badge-inner"><span>1</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/s26-spray.jpg" alt="S26 スプレー缶">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-heavy.jpg" alt="S26 重装甲耐衝撃ケース">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">一番人気</span>
-              <span class="product-tag">420ml</span>
+              <span class="product-tag">4コーナー</span>
+              <span class="product-tag">最強</span>
             </div>
-            <h3 class="product-name">ダイハツ S26 スプレー缶</h3>
+            <h3 class="product-name">S26 重装甲耐衝撃ケース</h3>
             <p class="product-price"><small>¥</small>2,480</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/S28-spray/" class="product-card">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-slim" class="product-card">
           <div class="rank-badge silver"><div class="rank-badge-inner"><span>2</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/s28-spray.jpg" alt="S28 スプレー缶">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-slim.jpg" alt="S26 スリム耐衝撃ケース">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
               <span class="product-tag">デザイン性</span>
-              <span class="product-tag">省スペース</span>
+              <span class="product-tag">薄型</span>
             </div>
-            <h3 class="product-name">ダイハツ S28 スプレー缶</h3>
-            <p class="product-price"><small>¥</small>2,480</p>
-            <div class="product-action">商品を見る</div>
-          </div>
-        </a>
-
-        <a href="https://item.rakuten.co.jp/mywaysmart/S26-clear-spray/" class="product-card">
-          <div class="rank-badge bronze"><div class="rank-badge-inner"><span>3</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/s26-clear-spray.jpg" alt="クリアースプレー">
-            <span class="free-shipping-badge">送料無料</span>
-          </div>
-          <div class="product-info">
-            <div class="product-tags">
-              <span class="product-tag">安定感</span>
-              <span class="product-tag">仕上げ</span>
-            </div>
-            <h3 class="product-name">ダイハツ クリアースプレー</h3>
+            <h3 class="product-name">S26 スリム耐衝撃ケース</h3>
             <p class="product-price"><small>¥</small>1,680</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/putty-spray/" class="product-card">
-          <div class="rank-badge"><div class="rank-badge-inner"><span>4</span></div></div>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-wallet" class="product-card">
+          <div class="rank-badge bronze"><div class="rank-badge-inner"><span>3</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/putty-spray.jpg" alt="パテスプレー">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-wallet.jpg" alt="S26 耐衝撃ウォレット">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">下地処理</span>
-              <span class="product-tag">必須</span>
+              <span class="product-tag">安定感</span>
+              <span class="product-tag">カード収納</span>
             </div>
-            <h3 class="product-name">サーフェイサー パテスプレー</h3>
-            <p class="product-price"><small>¥</small>1,480</p>
+            <h3 class="product-name">S26 耐衝撃ウォレットケース</h3>
+            <p class="product-price"><small>¥</small>2,280</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/primer-spray/" class="product-card">
-          <div class="rank-badge silver"><div class="rank-badge-inner"><span>5</span></div></div>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-ring" class="product-card">
+          <div class="rank-badge"><div class="rank-badge-inner"><span>4</span></div></div>
           <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/daihatsu/primer-spray.jpg" alt="プライマースプレー">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-ring.jpg" alt="S26 指輪ホルダー付き">
             <span class="free-shipping-badge">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">密着性</span>
-              <span class="product-tag">下地</span>
+              <span class="product-tag">指輪ホルダー</span>
+              <span class="product-tag">便利</span>
             </div>
-            <h3 class="product-name">プライマースプレー グレー</h3>
-            <p class="product-price"><small>¥</small>1,380</p>
+            <h3 class="product-name">S26 指輪ホルダー付き耐衝撃ケース</h3>
+            <p class="product-price"><small>¥</small>1,880</p>
+            <div class="product-action">商品を見る</div>
+          </div>
+        </a>
+
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-kids" class="product-card">
+          <div class="rank-badge silver"><div class="rank-badge-inner"><span>5</span></div></div>
+          <div class="product-image">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-kids.jpg" alt="S26 キッズ用耐衝撃">
+            <span class="free-shipping-badge">送料無料</span>
+          </div>
+          <div class="product-info">
+            <div class="product-tags">
+              <span class="product-tag">子供用</span>
+              <span class="product-tag">かわいい</span>
+            </div>
+            <h3 class="product-name">S26 キッズ用耐衝撃ケース（キャラデザ）</h3>
+            <p class="product-price"><small>¥</small>1,480</p>
+            <div class="product-action">商品を見る</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- レザーケースランキング -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-tag">RANKING</span>
+        <h2 class="section-title">レザーケース <span class="highlight">TOP 5</span></h2>
+        <p class="section-subtitle">大人の上品さを演出、厳選レザーケース</p>
+      </div>
+
+      <div class="product-grid">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-black" class="product-card">
+          <div class="rank-badge"><div class="rank-badge-inner"><span>1</span></div></div>
+          <div class="product-image">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-black.jpg" alt="S26 ブラックレザー">
+            <span class="free-shipping-badge">送料無料</span>
+          </div>
+          <div class="product-info">
+            <div class="product-tags">
+              <span class="product-tag">本革</span>
+              <span class="product-tag">クラシック</span>
+            </div>
+            <h3 class="product-name">S26 ブラックレザーケース</h3>
+            <p class="product-price"><small>¥</small>2,480</p>
+            <div class="product-action">商品を見る</div>
+          </div>
+        </a>
+
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-brown" class="product-card">
+          <div class="rank-badge silver"><div class="rank-badge-inner"><span>2</span></div></div>
+          <div class="product-image">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-brown.jpg" alt="S26 ブラウンレザー">
+            <span class="free-shipping-badge">送料無料</span>
+          </div>
+          <div class="product-info">
+            <div class="product-tags">
+              <span class="product-tag">ブラウン</span>
+              <span class="product-tag">ナチュラル</span>
+            </div>
+            <h3 class="product-name">S26 ブラウンレザーケース</h3>
+            <p class="product-price"><small>¥</small>2,480</p>
+            <div class="product-action">商品を見る</div>
+          </div>
+        </a>
+
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-wallet" class="product-card">
+          <div class="rank-badge bronze"><div class="rank-badge-inner"><span>3</span></div></div>
+          <div class="product-image">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-wallet.jpg" alt="S26 レザーウォレット">
+            <span class="free-shipping-badge">送料無料</span>
+          </div>
+          <div class="product-info">
+            <div class="product-tags">
+              <span class="product-tag">二つ折り</span>
+              <span class="product-tag">カード収納</span>
+            </div>
+            <h3 class="product-name">S26 レザーウォレットケース</h3>
+            <p class="product-price"><small>¥</small>3,280</p>
+            <div class="product-action">商品を見る</div>
+          </div>
+        </a>
+
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-book" class="product-card">
+          <div class="rank-badge"><div class="rank-badge-inner"><span>4</span></div></div>
+          <div class="product-image">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-book.jpg" alt="S26 ブックタイプレザー">
+            <span class="free-shipping-badge">送料無料</span>
+          </div>
+          <div class="product-info">
+            <div class="product-tags">
+              <span class="product-tag">ブック型</span>
+              <span class="product-tag">高級感</span>
+            </div>
+            <h3 class="product-name">S26 ブックタイプレザーケース</h3>
+            <p class="product-price"><small>¥</small>2,980</p>
+            <div class="product-action">商品を見る</div>
+          </div>
+        </a>
+
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-stand" class="product-card">
+          <div class="rank-badge silver"><div class="rank-badge-inner"><span>5</span></div></div>
+          <div class="product-image">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-stand.jpg" alt="S26 レザースタンド">
+            <span class="free-shipping-badge">送料無料</span>
+          </div>
+          <div class="product-info">
+            <div class="product-tags">
+              <span class="product-tag">自立</span>
+              <span class="product-tag">動画視聴</span>
+            </div>
+            <h3 class="product-name">S26 レザースタンドケース</h3>
+            <p class="product-price"><small>¥</small>2,680</p>
             <div class="product-action">商品を見る</div>
           </div>
         </a>
@@ -1479,7 +1515,7 @@
     <div class="footer-links">
       <a href="https://www.rakuten.co.jp/mywaysmart/" class="footer-link">店舗情報</a>
       <a href="https://www.rakuten.co.jp/mywaysmart/contact/" class="footer-link">お問い合わせ</a>
-      <a href="https://search.rakuten.co.jp/search/mall/S26/" class="footer-link">全商品</a>
+      <a href="https://search.rakuten.co.jp/search/mall/Galaxy%20S26%20FIRME/" class="footer-link">全商品</a>
     </div>
     <p class="footer-copy">© 2026 MYWAYSMART All Rights Reserved.</p>
   </footer>
