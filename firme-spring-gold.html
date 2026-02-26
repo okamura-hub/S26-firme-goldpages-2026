@@ -2,11 +2,11 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FIRME - Galaxy S26 発売記念フェア | MYWAYSMART</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Galaxy S26 Ultra | Samsung</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   * {
     margin: 0;
@@ -19,256 +19,212 @@
   }
 
   body {
-    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(135deg, #0A0F1F 0%, #1a1a2e 50%, #0f0f23 100%);
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: #000000;
     color: #FFFFFF;
-    line-height: 1.6;
-    overflow-x: hidden;
-    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  .font-orbitron {
-    font-family: 'Orbitron', sans-serif;
+  /* Samsung風アニメーション */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  /* ========== オーロラ背景アニメーション ========== */
-  @keyframes aurora-pulse {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.1); }
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
-  @keyframes aurora-drift-1 {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    33% { transform: translate(30px, -30px) rotate(120deg); }
-    66% { transform: translate(-20px, 20px) rotate(240deg); }
-    100% { transform: translate(0, 0) rotate(360deg); }
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
-  @keyframes aurora-drift-2 {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    33% { transform: translate(-25px, 35px) rotate(-120deg); }
-    66% { transform: translate(40px, -15px) rotate(-240deg); }
-    100% { transform: translate(0, 0) rotate(-360deg); }
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   @keyframes shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
   }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
+  @keyframes float-gentle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
   }
 
-  @keyframes glow-pulse {
-    0%, 100% { border-color: rgba(192, 192, 192, 0.3); box-shadow: 0 0 20px rgba(192, 192, 192, 0.2), inset 0 0 20px rgba(192, 192, 192, 0.05); }
-    50% { border-color: rgba(192, 192, 192, 0.6); box-shadow: 0 0 40px rgba(192, 192, 192, 0.4), inset 0 0 30px rgba(192, 192, 192, 0.1); }
+  @keyframes glow-blue {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(20, 40, 100, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(20, 40, 100, 0.5);
+    }
   }
 
-  @keyframes text-shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
+  .animate-fade-up {
+    opacity: 0;
+    animation: fade-up 0.8s ease-out forwards;
   }
 
-  @keyframes rotate-border {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  .animate-slide-right {
+    opacity: 0;
+    animation: slide-in-right 0.6s ease-out forwards;
   }
 
-  @keyframes spark {
-    0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
-    50% { opacity: 1; transform: scale(1) rotate(180deg); }
+  .animate-slide-left {
+    opacity: 0;
+    animation: slide-in-left 0.6s ease-out forwards;
   }
 
-  .aurora-pulse { animation: aurora-pulse 4s ease-in-out infinite; }
-  .aurora-drift-1 { animation: aurora-drift-1 20s ease-in-out infinite; }
-  .aurora-drift-2 { animation: aurora-drift-2 25s ease-in-out infinite; }
-  .animate-shimmer { animation: shimmer 3s linear infinite; }
-  .animate-float { animation: float 6s ease-in-out infinite; }
-  .animate-glow { animation: glow-pulse 3s ease-in-out infinite; }
-  .rotate-border { animation: rotate-border 10s linear infinite; }
-
-  /* 背景コンテナ */
-  .parallax-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
+  .animate-scale-in {
+    opacity: 0;
+    animation: scale-in 0.5s ease-out forwards;
   }
 
-  .bg-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-      radial-gradient(ellipse at 20% 20%, rgba(75, 0, 130, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, rgba(25, 25, 112, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, rgba(30, 30, 60, 0.3) 0%, transparent 70%);
+  .animate-float {
+    animation: float-gentle 4s ease-in-out infinite;
   }
 
-  .aurora-blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.6;
+  .animate-glow {
+    animation: glow-blue 3s ease-in-out infinite;
   }
 
-  .aurora-1 {
-    width: 600px;
-    height: 600px;
-    background: linear-gradient(135deg, #C0C0C0, #E8E8E8, #A8A8A8, #D4D4D4);
-    top: 10%;
-    left: 10%;
-    animation: aurora-drift-1 30s ease-in-out infinite, aurora-pulse 6s ease-in-out infinite;
-  }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; }
 
-  .aurora-2 {
-    width: 500px;
-    height: 500px;
-    background: linear-gradient(225deg, #B0C4DE, #C0C0C0, #D3D3D3);
-    bottom: 20%;
-    right: 10%;
-    animation: aurora-drift-2 25s ease-in-out infinite, aurora-pulse 5s ease-in-out infinite 1s;
-  }
-
-  .aurora-3 {
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(45deg, #A9A9A9, #C0C0C0, #B8B8B8);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: aurora-pulse 7s ease-in-out infinite 2s;
-  }
-
-  /* 星空パーティクル */
-  .stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
-  .star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    border-radius: 50%;
-    animation: spark 3s ease-in-out infinite;
-  }
-
-  /* ========== ヘッダー ========== */
+  /* ヘッダー */
   .header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(10, 15, 31, 0.8);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(192, 192, 192, 0.2);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   }
 
-  .header-content {
+  .header-inner {
     max-width: 430px;
     margin: 0 auto;
-    padding: 12px 20px;
+    padding: 16px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .header-left {
+  .header-logo {
     display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .brand-name {
-    font-size: 22px;
-    font-weight: 900;
-    font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(90deg, #C0C0C0, #FFFFFF, #C0C0C0);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: text-shimmer 4s linear infinite;
-    letter-spacing: 3px;
-  }
-
-  .store-name {
-    font-size: 10px;
-    color: #AAAAAA;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .header-right {
-    display: flex;
+    align-items: center;
     gap: 8px;
   }
 
-  .header-badge {
-    background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(192, 192, 192, 0.1));
-    border: 1px solid rgba(192, 192, 192, 0.3);
-    border-radius: 20px;
-    padding: 6px 12px;
-    font-size: 10px;
-    color: #C0C0C0;
-    font-weight: 600;
+  .header-logo-icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #1428a0, #03A9F4);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
   }
 
-  /* ========== メインコンテナ ========== */
-  .container {
-    position: relative;
-    z-index: 10;
+  .header-logo-text {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: #FFFFFF;
+  }
+
+  .header-nav {
+    display: flex;
+    gap: 4px;
+  }
+
+  .header-nav-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .header-nav-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* メインコンテナ */
+  .main {
     max-width: 430px;
     margin: 0 auto;
-    padding: 100px 16px 32px;
   }
 
-  /* ========== ヒーローセクション ========== */
+  /* ヒーローセクション */
   .hero {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(192, 192, 192, 0.2);
-    border-radius: 32px;
-    padding: 32px 24px;
+    padding: 120px 20px 80px;
     text-align: center;
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.3),
-      0 0 60px rgba(192, 192, 192, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    margin-bottom: 32px;
     position: relative;
-    overflow: hidden;
   }
 
   .hero::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg at 50% 50%,
-      transparent 0deg,
-      rgba(192, 192, 192, 0.1) 90deg,
-      transparent 180deg,
-      rgba(192, 192, 192, 0.1) 270deg,
-      transparent 360deg);
-    animation: rotate-border 20s linear infinite;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center top, rgba(20, 40, 100, 0.15) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .hero-content {
@@ -280,124 +236,111 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, #C0C0C0, #A8A8A8);
-    border-radius: 30px;
+    background: rgba(20, 40, 100, 0.2);
+    border: 1px solid rgba(20, 40, 100, 0.3);
+    border-radius: 100px;
     padding: 8px 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 20px rgba(192, 192, 192, 0.4);
-    animation: float 4s ease-in-out infinite;
+    margin-bottom: 32px;
+    animation: float-gentle 3s ease-in-out infinite;
   }
 
-  .hero-badge-icon {
-    width: 8px;
-    height: 8px;
-    background: #FFFFFF;
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(135deg, #1428a0, #03A9F4);
     border-radius: 50%;
-    animation: aurora-pulse 2s ease-in-out infinite;
   }
 
   .hero-badge-text {
-    font-size: 11px;
-    font-weight: 700;
-    color: #1a1a2e;
+    font-size: 12px;
+    font-weight: 500;
+    color: #90CAF9;
+    letter-spacing: 1px;
+  }
+
+  .hero-model {
+    font-size: 12px;
+    font-weight: 500;
+    color: #90CAF9;
     letter-spacing: 3px;
-    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 8px;
   }
 
   .hero-title {
-    font-size: 32px;
-    font-weight: 900;
-    margin-bottom: 12px;
-    font-family: 'Orbitron', sans-serif;
-    text-shadow: 0 0 40px rgba(192, 192, 192, 0.5);
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 16px;
   }
 
-  .hero-title .main {
-    display: block;
-    font-size: 48px;
-    background: linear-gradient(135deg, #FFFFFF 0%, #C0C0C0 50%, #FFFFFF 100%);
-    background-size: 200% auto;
+  .hero-title-text {
+    background: linear-gradient(180deg, #FFFFFF 0%, #90CAF9 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: text-shimmer 4s linear infinite;
   }
 
-  .hero-title .sub {
-    font-size: 16px;
-    color: #AAAAAA;
-    font-weight: 400;
-    letter-spacing: 4px;
-    margin-top: 8px;
+  .hero-series {
+    font-size: 20px;
+    font-weight: 300;
+    color: #90CAF9;
+    letter-spacing: 8px;
+    margin-bottom: 24px;
   }
 
   .hero-description {
-    font-size: 13px;
-    color: #CCCCCC;
-    max-width: 300px;
-    margin: 0 auto 20px;
-    line-height: 1.8;
+    font-size: 16px;
+    font-weight: 400;
+    color: #B0BEC5;
+    line-height: 1.6;
+    max-width: 320px;
+    margin: 0 auto 48px;
   }
 
-  /* ========== クーポンカード ========== */
-  .coupons-wrapper {
+  /* クーポンセクション */
+  .coupons {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin: 24px 0;
+    margin-bottom: 64px;
   }
 
-  .coupon-card {
-    position: relative;
-    background: linear-gradient(135deg, rgba(192, 192, 192, 0.15), rgba(168, 168, 168, 0.05));
+  .coupon {
+    background: linear-gradient(135deg, rgba(30, 40, 60, 0.8), rgba(10, 10, 20, 0.8));
     border-radius: 24px;
-    padding: 24px;
+    padding: 32px;
+    border: 1px solid rgba(20, 40, 100, 0.2);
+    position: relative;
     overflow: hidden;
-    border: 2px solid rgba(192, 192, 192, 0.3);
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.3),
-      0 0 40px rgba(192, 192, 192, 0.1);
   }
 
-  .coupon-card.premium {
-    background: linear-gradient(135deg,
-      rgba(192, 192, 192, 0.25),
-      rgba(168, 168, 168, 0.1),
-      rgba(192, 192, 192, 0.05));
-    border: 2px solid rgba(192, 192, 192, 0.5);
-    animation: glow-pulse 3s ease-in-out infinite;
-  }
-
-  .coupon-card::before {
+  .coupon::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(3, 169, 244, 0.15), transparent);
     transition: left 0.8s ease;
   }
 
-  .coupon-card:hover::before {
+  .coupon:hover::before {
     left: 100%;
   }
 
-  .coupon-shine {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    pointer-events: none;
+  .coupon.featured {
+    background: linear-gradient(135deg, rgba(20, 40, 100, 0.4), rgba(30, 40, 60, 0.8));
+    border: 1px solid rgba(3, 169, 244, 0.3);
   }
 
   .coupon-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
+    align-items: flex-start;
+    margin-bottom: 20px;
     position: relative;
     z-index: 1;
   }
@@ -408,38 +351,44 @@
     gap: 4px;
   }
 
-  .coupon-label-text {
-    font-size: 10px;
-    color: #C0C0C0;
+  .coupon-label-title {
+    font-size: 11px;
     font-weight: 600;
+    color: #03A9F4;
     letter-spacing: 2px;
-    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
   }
 
-  .coupon-label-sub {
-    font-size: 9px;
-    color: #888888;
+  .coupon-label-desc {
+    font-size: 13px;
+    color: #90CAF9;
   }
 
   .coupon-discount {
-    font-size: 42px;
-    font-weight: 900;
-    font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(135deg, #C0C0C0, #FFFFFF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 0 20px rgba(192, 192, 192, 0.5));
+    text-align: right;
   }
 
-  .coupon-discount small {
-    font-size: 20px;
+  .coupon-discount-value {
+    font-size: 48px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1;
   }
 
-  .coupon-conditions {
-    font-size: 12px;
-    color: #AAAAAA;
-    margin-bottom: 16px;
+  .coupon-discount-value small {
+    font-size: 24px;
+  }
+
+  .coupon-discount-unit {
+    font-size: 16px;
+    font-weight: 500;
+    color: #B0BEC5;
+  }
+
+  .coupon-description {
+    font-size: 14px;
+    color: #B0BEC5;
+    margin-bottom: 24px;
     position: relative;
     z-index: 1;
   }
@@ -448,773 +397,576 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     width: 100%;
-    background: linear-gradient(135deg, #C0C0C0, #888888);
+    background: linear-gradient(135deg, #1428a0, #03A9F4);
     border: none;
     border-radius: 16px;
-    padding: 16px 32px;
-    font-size: 15px;
-    font-weight: 700;
-    color: #1a1a2e;
+    padding: 20px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(192, 192, 192, 0.3);
     position: relative;
     z-index: 1;
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 1px;
   }
 
   .coupon-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(192, 192, 192, 0.5);
+    background: linear-gradient(135deg, #0D47A1, #0288D1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(3, 169, 244, 0.3);
   }
 
   .coupon-button::after {
-    content: '→';
-    font-size: 18px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='M9 18l6-6-6 6'/%3E%3C/svg%3E") no-repeat;
     transition: transform 0.3s ease;
   }
 
   .coupon-button:hover::after {
-    transform: translateX(5px);
+    transform: translateX(4px);
   }
 
-  .coupon-time {
-    font-size: 10px;
-    color: #C0C0C0;
+  .coupon-period {
+    font-size: 12px;
+    color: #90CAF9;
     text-align: center;
-    margin-top: 12px;
+    margin-top: 16px;
     position: relative;
     z-index: 1;
-    font-family: 'Orbitron', sans-serif;
   }
 
-  /* ========== 信頼統計 ========== */
-  .stats-section {
-    margin: 32px 0;
-  }
-
-  .stats-grid {
+  /* 統計 */
+  .stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
+    margin-bottom: 64px;
   }
 
-  .stat-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .stat {
+    background: rgba(20, 20, 30, 0.6);
     border-radius: 20px;
-    padding: 16px 12px;
+    padding: 20px 12px;
     text-align: center;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
   }
 
-  .stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(192, 192, 192, 0.5), transparent);
-  }
-
-  .stat-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(192, 192, 192, 0.3);
-    box-shadow: 0 8px 30px rgba(192, 192, 192, 0.2);
-  }
-
-  .stat-icon-wrapper {
-    width: 44px;
-    height: 44px;
-    margin: 0 auto 10px;
-    background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(192, 192, 192, 0.05));
-    border-radius: 50%;
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-  }
-
-  .stat-icon-wrapper::before {
-    content: '';
-    position: absolute;
-    inset: -3px;
+    background: rgba(20, 40, 100, 0.15);
     border-radius: 50%;
-    background: conic-gradient(from 0deg, transparent, rgba(192, 192, 192, 0.3), transparent);
-    animation: rotate-border 6s linear infinite;
   }
 
-  .stat-icon-wrapper svg {
-    width: 22px;
-    height: 22px;
-    position: relative;
-    z-index: 1;
+  .stat-icon svg {
+    width: 20px;
+    height: 20px;
   }
 
   .stat-value {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 600;
     color: #FFFFFF;
-    margin-bottom: 4px;
-    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 2px;
   }
 
   .stat-label {
-    font-size: 10px;
-    color: #AAAAAA;
-    letter-spacing: 1px;
+    font-size: 11px;
+    color: #90CAF9;
   }
 
-  /* ========== セパレーター ========== */
-  .separator {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: 32px 0;
-  }
-
-  .separator-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(192, 192, 192, 0.5), transparent);
-  }
-
-  .separator-diamond {
-    width: 12px;
-    height: 12px;
-    background: rgba(192, 192, 192, 0.3);
-    transform: rotate(45deg);
-    animation: aurora-pulse 3s ease-in-out infinite;
-  }
-
-  /* ========== スクロールインジケーター ========== */
-  .scroll-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    margin-top: 24px;
-  }
-
-  .scroll-text {
-    font-size: 10px;
-    color: #888888;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-  }
-
-  .scroll-chevron {
-    width: 16px;
-    height: 16px;
-    color: #888888;
-    animation: float 2s ease-in-out infinite;
-  }
-
-  /* ========== セクション ========== */
+  /* セクション */
   .section {
-    margin-bottom: 48px;
+    margin-bottom: 80px;
   }
 
   .section-header {
     text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 40px;
   }
 
   .section-tag {
     display: inline-block;
-    background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(192, 192, 192, 0.05));
-    border: 1px solid rgba(192, 192, 192, 0.3);
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-size: 10px;
-    color: #C0C0C0;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-    font-family: 'Orbitron', sans-serif;
+    background: rgba(20, 40, 100, 0.15);
+    border: 1px solid rgba(20, 40, 100, 0.3);
+    border-radius: 100px;
+    padding: 8px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #90CAF9;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
   }
 
   .section-title {
-    font-size: 28px;
-    font-weight: 900;
-    margin-bottom: 10px;
-    font-family: 'Orbitron', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
   }
 
-  .section-title .highlight {
-    background: linear-gradient(135deg, #C0C0C0, #FFFFFF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .section-title span {
+    color: #03A9F4;
   }
 
-  .section-subtitle {
-    font-size: 13px;
-    color: #AAAAAA;
+  .section-description {
+    font-size: 15px;
+    color: #B0BEC5;
+    line-height: 1.6;
     max-width: 280px;
     margin: 0 auto;
-    line-height: 1.7;
   }
 
-  /* ========== 商品グリッド ========== */
+  /* 商品グリッド */
   .product-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 
-  /* ========== 商品カード ========== */
-  .product-card {
-    position: relative;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+  /* 商品カード */
+  .product {
+    background: rgba(20, 20, 30, 0.6);
     border-radius: 24px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-decoration: none;
     display: block;
+    transition: all 0.3s ease;
   }
 
-  .product-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 24px;
-    padding: 2px;
-    background: linear-gradient(135deg, rgba(192, 192, 192, 0.3), transparent, rgba(192, 192, 192, 0.1));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+  .product:hover {
+    transform: translateY(-8px);
+    background: rgba(30, 30, 50, 0.8);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
-  .product-card:hover {
-    transform: translateY(-8px) rotateX(5deg);
-    box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.4),
-      0 0 60px rgba(192, 192, 192, 0.2);
-  }
-
-  .product-card:hover::before {
-    opacity: 1;
-  }
-
-  /* ランクバッジ */
-  .rank-badge {
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    width: 50px;
-    height: 50px;
-    z-index: 10;
-  }
-
-  .rank-badge-inner {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow:
-      0 4px 20px rgba(255, 215, 0, 0.5),
-      inset 0 -2px 10px rgba(0, 0, 0, 0.2);
+  .product-image-wrapper {
     position: relative;
-  }
-
-  .rank-badge-inner::before {
-    content: '';
-    position: absolute;
-    inset: 2px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent);
-  }
-
-  .rank-badge-inner span {
-    font-size: 20px;
-    font-weight: 900;
-    color: #1a1a2e;
-    font-family: 'Orbitron', sans-serif;
-    position: relative;
-    z-index: 1;
-  }
-
-  .rank-badge.silver .rank-badge-inner {
-    background: linear-gradient(135deg, #C0C0C0, #A8A8A8);
-    box-shadow: 0 4px 20px rgba(192, 192, 192, 0.5);
-  }
-
-  .rank-badge.bronze .rank-badge-inner {
-    background: linear-gradient(135deg, #CD7F32, #B87333);
-    box-shadow: 0 4px 20px rgba(205, 127, 50, 0.5);
-  }
-
-  /* 商品画像 */
-  .product-image {
-    position: relative;
-    width: 100%;
     aspect-ratio: 1;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    background: linear-gradient(135deg, rgba(20, 40, 100, 0.1), rgba(10, 10, 20, 0.3));
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
   }
 
-  .product-image img {
+  .product-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
   }
 
-  .product-card:hover .product-image img {
-    transform: scale(1.1);
+  .product:hover .product-image {
+    transform: scale(1.08);
   }
 
-  /* 送料無料 バッジ */
-  .free-shipping-badge {
+  /* ランクバッジ */
+  .rank {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: linear-gradient(135deg, #DC2626, #B91C1C);
-    color: white;
-    font-size: 9px;
-    font-weight: 700;
-    padding: 5px 10px;
-    border-radius: 20px;
-    box-shadow: 0 2px 10px rgba(220, 38, 38, 0.4);
-    z-index: 5;
-    letter-spacing: 1px;
+    top: 12px;
+    left: 12px;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+    z-index: 10;
   }
 
-  /* NEW バッジ */
-  .new-badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: linear-gradient(135deg, #10B981, #059669);
-    color: white;
-    font-size: 8px;
+  .rank span {
+    font-size: 14px;
     font-weight: 700;
-    padding: 4px 8px;
-    border-radius: 20px;
-    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);
-    z-index: 5;
-    letter-spacing: 1px;
+    color: #1a1a1a;
+  }
+
+  .rank.silver {
+    background: linear-gradient(135deg, #C0C0C0, #A8A8A8);
+  }
+
+  .rank.bronze {
+    background: linear-gradient(135deg, #CD7F32, #B87333);
+  }
+
+  /* バッジ */
+  .badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 600;
+    z-index: 10;
+  }
+
+  .badge.new {
+    background: linear-gradient(135deg, #4CAF50, #45A049);
+    color: #fff;
+  }
+
+  .badge.free {
+    background: linear-gradient(135deg, #F44336, #D32F2F);
+    color: #fff;
   }
 
   /* 商品情報 */
   .product-info {
     padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
   }
 
   .product-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    justify-content: center;
+    margin-bottom: 12px;
   }
 
-  .product-tag {
-    background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(192, 192, 192, 0.05));
-    border: 1px solid rgba(192, 192, 192, 0.2);
-    color: #C0C0C0;
-    font-size: 9px;
-    font-weight: 600;
+  .tag {
+    background: rgba(20, 40, 100, 0.2);
+    color: #90CAF9;
+    font-size: 10px;
+    font-weight: 500;
     padding: 4px 10px;
-    border-radius: 20px;
-    letter-spacing: 1px;
+    border-radius: 100px;
   }
 
   .product-name {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
     color: #FFFFFF;
-    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 8px;
     min-height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1.5;
   }
 
   .product-price {
-    font-size: 20px;
-    font-weight: 700;
-    color: #C0C0C0;
-    text-align: center;
-    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFFFFF;
   }
 
   .product-price small {
-    font-size: 12px;
+    font-size: 14px;
+    color: #90CAF9;
   }
 
-  .product-action {
+  .product-cta {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: linear-gradient(135deg, rgba(192, 192, 192, 0.15), rgba(192, 192, 192, 0.05));
-    border: 1px solid rgba(192, 192, 192, 0.2);
-    color: #C0C0C0;
-    padding: 12px 16px;
-    border-radius: 16px;
-    font-size: 11px;
-    font-weight: 600;
+    background: rgba(20, 40, 100, 0.2);
+    border: 1px solid rgba(20, 40, 100, 0.3);
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #FFFFFF;
     transition: all 0.3s ease;
-    letter-spacing: 1px;
   }
 
-  .product-card:hover .product-action {
-    background: linear-gradient(135deg, rgba(192, 192, 192, 0.25), rgba(192, 192, 192, 0.1));
-    border-color: rgba(192, 192, 192, 0.4);
+  .product:hover .product-cta {
+    background: rgba(20, 40, 100, 0.3);
   }
 
-  .product-action::after {
-    content: '→';
+  .product-cta::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2390CAF9' stroke-width='2'%3E%3Cpath d='M5 12h14M12 5l7 7-7 7'/%3E%3C/svg%3E") no-repeat;
     transition: transform 0.3s ease;
   }
 
-  .product-card:hover .product-action::after {
+  .product:hover .product-cta::after {
     transform: translateX(4px);
   }
 
-  /* ========== フッター ========== */
+  /* フッター */
   .footer {
-    position: relative;
-    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 48px 20px;
     text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5));
-    border-top: 1px solid rgba(192, 192, 192, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .footer-logo {
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 600;
     color: #FFFFFF;
-    margin-bottom: 8px;
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 3px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
   }
 
   .footer-links {
     display: flex;
     justify-content: center;
     gap: 24px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
 
   .footer-link {
-    font-size: 11px;
-    color: #AAAAAA;
+    font-size: 13px;
+    color: #90CAF9;
     text-decoration: none;
     transition: color 0.3s ease;
   }
 
   .footer-link:hover {
-    color: #C0C0C0;
+    color: #FFFFFF;
   }
 
   .footer-copy {
-    font-size: 10px;
-    color: #666666;
+    font-size: 11px;
+    color: #607D8B;
   }
 
-  /* ========== レスポンシブ ========== */
-  @media (max-width: 375px) {
-    .container {
-      padding: 90px 12px 24px;
-    }
-
-    .hero-title .main {
-      font-size: 36px;
-    }
-
-    .product-grid {
-      gap: 12px;
-    }
-
-    .section-title {
-      font-size: 22px;
-    }
-  }
-
-  /* ========== カスタムスクロールバー ========== */
+  /* スクロールバーハージ */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
+    background: #0a0a0a;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #C0C0C0, #888888);
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #D4D4D4, #A8A8A8);
+    background: linear-gradient(180deg, #1428a0, #03A9F4);
+    border-radius: 3px;
   }
 </style>
 </head>
 <body>
-  <!-- オーロラ背景 -->
-  <div class="parallax-bg">
-    <div class="bg-gradient"></div>
-    <div class="aurora-blob aurora-1"></div>
-    <div class="aurora-blob aurora-2"></div>
-    <div class="aurora-blob aurora-3"></div>
-
-    <!-- 星空 -->
-    <div class="stars" id="stars"></div>
-  </div>
-
   <!-- ヘッダー -->
   <header class="header">
-    <div class="header-content">
-      <div class="header-left">
-        <div class="brand-name">FIRME</div>
-        <div class="store-name">MYWAYSMART</div>
+    <div class="header-inner">
+      <div class="header-logo">
+        <div class="header-logo-icon">S</div>
+        <span class="header-logo-text">FIRME</span>
       </div>
-      <div class="header-right">
-        <span class="header-badge">SALE</span>
-        <span class="header-badge">NEW</span>
-      </div>
+      <nav class="header-nav">
+        <button class="header-nav-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0BEC5" stroke-width="2" stroke-linecap="round">
+            <path d="M3 12h2M3 6h2M3 18h2"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+        <button class="header-nav-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0BEC5" stroke-width="2" stroke-linecap="round">
+            <path d="M9 18l6-6-6 6"/>
+          </svg>
+        </button>
+      </nav>
     </div>
   </header>
 
-  <!-- メインコンテナ -->
-  <div class="container">
-    <!-- ヒーローセクション -->
+  <main class="main">
+    <!-- ヒーロー -->
     <section class="hero">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="hero-badge-icon"></span>
-          <span class="hero-badge-text">NEW RELEASE</span>
+      <div class="hero-content animate-fade-up">
+        <div class="hero-badge animate-float">
+          <span class="hero-badge-dot"></span>
+          <span class="hero-badge-text">NEW ARRIVAL</span>
         </div>
+
+        <div class="hero-model">Galaxy S26</div>
 
         <h1 class="hero-title">
-          <span class="main">GALAXY S26</span>
-          <span class="sub">発売記念フェア</span>
+          <span class="hero-title-text">Ultra</span>
         </h1>
 
+        <p class="hero-series">発 売記念フェア</p>
+
         <p class="hero-description">
-          Samsung Galaxy S26がついに登場！<br>
-          人気ケースが勢揃い。クリアケースから耐衝撃、<br>
-          こだわりのレザーケースまで、あなたのS26を彩ります。
+          Samsung Galaxy S26 Ultraがついに登場。
+          次世代のフラッグシップを彩るアクセサリーが勢揃い。
         </p>
-
-        <!-- クーポン -->
-        <div class="coupons-wrapper">
-          <div class="coupon-card premium">
-            <div class="coupon-shine"></div>
-            <div class="coupon-header">
-              <div class="coupon-label">
-                <span class="coupon-label-text">SUPER</span>
-                <span class="coupon-label-sub">先着3名様限定</span>
-              </div>
-              <span class="coupon-discount"><small>50%</small>OFF</span>
-            </div>
-            <p class="coupon-conditions">Galaxy S26ケース全品対象</p>
-            <a href="https://coupon.rakuten.co.jp/getCoupon?getkey=WlU5VS1OUzA5LVJCN00tRklZUQ--" class="coupon-button">クーポンを取得</a>
-            <p class="coupon-time">02/25 20:00 ~ 21:59</p>
-          </div>
-
-          <div class="coupon-card">
-            <div class="coupon-shine"></div>
-            <div class="coupon-header">
-              <div class="coupon-label">
-                <span class="coupon-label-text">SPECIAL</span>
-                <span class="coupon-label-sub">2点同時購入で</span>
-              </div>
-              <span class="coupon-discount"><small>10%</small>OFF</span>
-            </div>
-            <p class="coupon-conditions">Galaxy S26ケース全品対象</p>
-            <a href="https://coupon.rakuten.co.jp/getCoupon?getkey=SjVTSC1YWkxULUpIVlEtSktVRQ--" class="coupon-button">クーポンを取得</a>
-            <p class="coupon-time">02/20 15:00 ~ 03/15 23:59</p>
-          </div>
-        </div>
-
-        <!-- 信頼統計 -->
-        <div class="stats-section">
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="#FFD700">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                </svg>
-              </div>
-              <p class="stat-value">13,000+</p>
-              <p class="stat-label">店舗レビュー</p>
-            </div>
-            <div class="stat-card">
-              <div class="stat-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="#C0C0C0">
-                  <path d="M17 1H7C5.343 1 4 2.343 4 4v16c0 1.657 1.343 3 3 3h10c1.657 0 3-1.343 3-3V4c0-1.657-1.343-3-3-3zm1 19c0 .551-.448 1-1 1H7c-.552 0-1-.449-1-1V4c0-.551.448-1 1-1h10c.552 0 1 .449 1 1v16z"/>
-                </svg>
-              </div>
-              <p class="stat-value">Galaxy<br/>S26</p>
-              <p class="stat-label">対応ケース</p>
-            </div>
-            <div class="stat-card">
-              <div class="stat-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="#34D399">
-                  <path d="M12 2L4 5v6.09c0 4.97 3.49 9.42 8 10.91 4.51-1.49 8-5.94 8-10.91V5l-8-3z"/>
-                </svg>
-              </div>
-              <p class="stat-value">日本<br/>企業</p>
-              <p class="stat-label">サポート</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- セパレーター -->
-        <div class="separator">
-          <div class="separator-line"></div>
-          <div class="separator-diamond"></div>
-          <div class="separator-line"></div>
-        </div>
-
-        <!-- スクロールインジケーター -->
-        <div class="scroll-indicator">
-          <span class="scroll-text">SCROLL</span>
-          <svg class="scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 9l-7 7-7-7"/>
-          </svg>
-        </div>
       </div>
     </section>
 
-    <!-- 新着商品セクション -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-tag">NEW ARRIVAL</span>
-        <h2 class="section-title">新着 <span class="highlight">CASES</span></h2>
-        <p class="section-subtitle">Galaxy S26対応ケースが続々登場！最新モデルをプロテクト</p>
+    <!-- クーポン -->
+    <div class="coupons animate-fade-up delay-1">
+      <div class="coupon featured">
+        <div class="coupon-header">
+          <div class="coupon-label">
+            <span class="coupon-label-title">Super Sale</span>
+            <span class="coupon-label-desc">先着3名様限定</span>
+          </div>
+          <div class="coupon-discount">
+            <div class="coupon-discount-value"><small>50</small><span class="coupon-discount-unit">% OFF</span></div>
+          </div>
+        </div>
+        <p class="coupon-description">Galaxy S26対応ケース全品対象</p>
+        <a href="https://coupon.rakuten.co.jp/getCoupon?getkey=WlU5VS1OUzA5LVJCN00tRklZUQ--" class="coupon-button">クーポンを取得</a>
+        <p class="coupon-period">2026/02/25 20:00 - 21:59</p>
       </div>
 
-      <div class="product-grid">
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-case" class="product-card">
-          <span class="new-badge">NEW</span>
-          <div class="rank-badge"><div class="rank-badge-inner"><span>1</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear.jpg" alt="Galaxy S26 クリアケース" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
-            <span class="free-shipping-badge">送料無料</span>
+      <div class="coupon">
+        <div class="coupon-header">
+          <div class="coupon-label">
+            <span class="coupon-label-title">Special</span>
+            <span class="coupon-label-desc">2点同時購入で</span>
+          </div>
+          <div class="coupon-discount">
+            <div class="coupon-discount-value"><small>10</small><span class="coupon-discount-unit">% OFF</span></div>
+          </div>
+        </div>
+        <p class="coupon-description">Galaxy S26対応ケース全品対象</p>
+        <a href="https://coupon.rakuten.co.jp/getCoupon?getkey=SjVTSC1YWkxULUpIVlEtSktVRQ--" class="coupon-button">クーポンを取得</a>
+        <p class="coupon-period">2026/02/20 - 2026/03/15</p>
+      </div>
+    </div>
+
+    <!-- 統計 -->
+    <div class="stats animate-fade-up delay-2">
+      <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="#FFD700">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+          </svg>
+        </div>
+        <div class="stat-value">13,000+</div>
+        <div class="stat-label">レビュー</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="#03A9F4">
+            <path d="M17 1H7C5.343 1 4 2.343 4 4v16c0 1.657 1.343 3 3 3h10c1.657 0 3-1.343 3-3V4c0-1.657-1.343-3-3-3z"/>
+          </svg>
+        </div>
+        <div class="stat-value">Galaxy<br/>S26</div>
+        <div class="stat-label">対応</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="#4CAF50">
+            <path d="M12 2L4 5v6.09c0 4.97 3.49 9.42 8 10.91 4.51-1.49 8-5.94 8-10.91V5l-8-3z"/>
+          </svg>
+        </div>
+        <div class="stat-value">日本<br/>発送</div>
+        <div class="stat-label">サポート</div>
+      </div>
+    </div>
+
+    <!-- 新着 -->
+    <section class="section">
+      <div class="section-header animate-fade-up delay-2">
+        <span class="section-tag">NEW ARRIVAL</span>
+        <h2 class="section-title">新着 <span>ケース</span></h2>
+        <p class="section-description">Galaxy S26対応の最新ケースが続々登場</p>
+      </div>
+
+      <div class="product-grid animate-fade-up delay-3">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear.jpg" alt="Galaxy S26 クリアケース" class="product-image">
+            <span class="rank"><span>1</span></span>
+            <span class="badge new">NEW</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">クリア</span>
-              <span class="product-tag">薄型</span>
+              <span class="tag">クリア</span>
+              <span class="tag">0.5mm</span>
             </div>
-            <h3 class="product-name">Galaxy S26 クリアケース（薄型0.5mm）</h3>
-            <p class="product-price"><small>¥</small>980</p>
-            <div class="product-action">商品を見る</div>
+            <h3 class="product-name">Galaxy S26 クリアケース<br>超薄タイプ</h3>
+            <div class="product-price"><small>¥</small>980</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-case" class="product-card">
-          <span class="new-badge">NEW</span>
-          <div class="rank-badge"><div class="rank-badge-inner"><span>2</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock.jpg" alt="Galaxy S26 耐衝撃ケース" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock.jpg" alt="Galaxy S26 耐衝撃ケース" class="product-image">
+            <span class="rank"><span>2</span></span>
+            <span class="badge new">NEW</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">耐衝撃</span>
-              <span class="product-tag">Military</span>
+              <span class="tag">耐衝撃</span>
+              <span class="tag">Military</span>
             </div>
-            <h3 class="product-name">Galaxy S26 耐衝撃ケース（ミリタリー級）</h3>
-            <p class="product-price"><small>¥</small>1,980</p>
-            <div class="product-action">商品を見る</div>
+            <h3 class="product-name">Galaxy S26 耐衝撃ケース<br>ミリタリー級</h3>
+            <div class="product-price"><small>¥</small>1,980</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-case" class="product-card">
-          <span class="new-badge">NEW</span>
-          <div class="rank-badge"><div class="rank-badge-inner"><span>3</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather.jpg" alt="Galaxy S26 レザーケース" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather.jpg" alt="Galaxy S26 レザーケース" class="product-image">
+            <span class="rank"><span>3</span></span>
+            <span class="badge new">NEW</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">本革</span>
-              <span class="product-tag">上品</span>
+              <span class="tag">本革</span>
+              <span class="tag">上品</span>
             </div>
-            <h3 class="product-name">Galaxy S26 レザーケース（本革仕様）</h3>
-            <p class="product-price"><small>¥</small>2,980</p>
-            <div class="product-action">商品を見る</div>
+            <h3 class="product-name">Galaxy S26 レザーケース<br>本革仕様</h3>
+            <div class="product-price"><small>¥</small>2,980</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-film-set" class="product-card">
-          <div class="rank-badge silver"><div class="rank-badge-inner"><span>4</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-film.jpg" alt="Galaxy S26 フィルムセット" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-film" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-film.jpg" alt="Galaxy S26 フィルム" class="product-image">
+            <span class="rank silver"><span>4</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">保護フィルム</span>
-              <span class="product-tag">2枚組</span>
+              <span class="tag">ガラス</span>
+              <span class="tag">9H</span>
             </div>
-            <h3 class="product-name">Galaxy S26 ガラスフィルム（9H/2枚組）</h3>
-            <p class="product-price"><small>¥</small>780</p>
-            <div class="product-action">商品を見る</div>
+            <h3 class="product-name">Galaxy S26 ガラスフィルム<br>2枚組</h3>
+            <div class="product-price"><small>¥</small>780</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-wallet-case" class="product-card">
-          <span class="new-badge">NEW</span>
-          <div class="rank-badge silver"><div class="rank-badge-inner"><span>5</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-wallet.jpg" alt="Galaxy S26 ウォレットケース" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-wallet" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-wallet.jpg" alt="Galaxy S26 ウォレット" class="product-image">
+            <span class="rank silver"><span>5</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">カード収納</span>
-              <span class="product-tag">自立</span>
+              <span class="tag">カード収納</span>
+              <span class="tag">自立</span>
             </div>
             <h3 class="product-name">Galaxy S26 ウォレットケース</h3>
-            <p class="product-price"><small>¥</small>1,680</p>
-            <div class="product-action">商品を見る</div>
+            <div class="product-price"><small>¥</small>1,680</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-mag-case" class="product-card">
-          <div class="rank-badge bronze"><div class="rank-badge-inner"><span>6</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-mag.jpg" alt="Galaxy S26 マグネットケース" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'color:#888;font-size:12px;\'>商品画像</div>';">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-mag" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-mag.jpg" alt="Galaxy S26 マグネット" class="product-image">
+            <span class="rank bronze"><span>6</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">MagSafe</span>
-              <span class="product-tag">充電対応</span>
+              <span class="tag">MagSafe</span>
+              <span class="tag">充電</span>
             </div>
             <h3 class="product-name">Galaxy S26 マグネットケース</h3>
-            <p class="product-price"><small>¥</small>2,280</p>
-            <div class="product-action">商品を見る</div>
+            <div class="product-price"><small>¥</small>2,280</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
       </div>
@@ -1222,318 +974,305 @@
 
     <!-- クリアケースランキング -->
     <section class="section">
-      <div class="section-header">
-        <span class="section-tag">RANKING</span>
-        <h2 class="section-title">クリアケース <span class="highlight">TOP 5</span></h2>
-        <p class="section-subtitle">S26の美しさを活かす、人気クリアケースランキング</p>
+      <div class="section-header animate-fade-up delay-2">
+        <span class="section-tag">BEST SELLER</span>
+        <h2 class="section-title">クリアケース <span>ランキング</span></h2>
+        <p class="section-description">S26の美しさをそのままに。人気のクリアケース</p>
       </div>
 
-      <div class="product-grid">
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-thin" class="product-card">
-          <div class="rank-badge"><div class="rank-badge-inner"><span>1</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-thin.jpg" alt="S26 超薄クリアケース">
-            <span class="free-shipping-badge">送料無料</span>
+      <div class="product-grid animate-fade-up delay-3">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-thin" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-thin.jpg" alt="S26 超薄クリア" class="product-image">
+            <span class="rank"><span>1</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">不動の人気</span>
-              <span class="product-tag">0.3mm</span>
+              <span class="tag">0.3mm</span>
+              <span class="tag">最薄</span>
             </div>
-            <h3 class="product-name">S26 超薄クリアケース（0.3mm）</h3>
-            <p class="product-price"><small>¥</small>880</p>
-            <div class="product-action">商品を見る</div>
+            <h3 class="product-name">S26 超薄クリアケース</h3>
+            <div class="product-price"><small>¥</small>880</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-soft" class="product-card">
-          <div class="rank-badge silver"><div class="rank-badge-inner"><span>2</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-soft.jpg" alt="S26 ソフトクリアケース">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-soft" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-soft.jpg" alt="S26 ソフトクリア" class="product-image">
+            <span class="rank silver"><span>2</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">お買い得</span>
-              <span class="product-tag">TPU</span>
+              <span class="tag">TPU</span>
+              <span class="tag">柔軟</span>
             </div>
             <h3 class="product-name">S26 ソフトクリアケース</h3>
-            <p class="product-price"><small>¥</small>580</p>
-            <div class="product-action">商品を見る</div>
+            <div class="product-price"><small>¥</small>580</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-hard" class="product-card">
-          <div class="rank-badge bronze"><div class="rank-badge-inner"><span>3</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-hard.jpg" alt="S26 ハードクリアケース">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-hard" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-hard.jpg" alt="S26 ハードクリア" class="product-image">
+            <span class="rank bronze"><span>3</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">ハード</span>
-              <span class="product-tag">傷付きにくい</span>
+              <span class="tag">PC</span>
+              <span class="tag">ハード</span>
             </div>
-            <h3 class="product-name">S26 ハードクリアケース（PC素材）</h3>
-            <p class="product-price"><small>¥</small>1,280</p>
-            <div class="product-action">商品を見る</div>
+            <h3 class="product-name">S26 ハードクリアケース</h3>
+            <div class="product-price"><small>¥</small>1,280</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-mat" class="product-card">
-          <div class="rank-badge"><div class="rank-badge-inner"><span>4</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-mat.jpg" alt="S26 マットクリアケース">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-mat" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-mat.jpg" alt="S26 マットクリア" class="product-image">
+            <span class="rank"><span>4</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">指紋防止</span>
-              <span class="product-tag">艶消し</span>
+              <span class="tag">艶消し</span>
+              <span class="tag">指紋防止</span>
             </div>
             <h3 class="product-name">S26 マットクリアケース</h3>
-            <p class="product-price"><small>¥</small>1,480</p>
-            <div class="product-action">商品を見る</div>
+            <div class="product-price"><small>¥</small>1,480</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-edge" class="product-card">
-          <div class="rank-badge silver"><div class="rank-badge-inner"><span>5</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-edge.jpg" alt="S26 エッジ保護クリア">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-clear-edge" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-clear-edge.jpg" alt="S26 エッジ保護" class="product-image">
+            <span class="rank silver"><span>5</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">エッジ保護</span>
-              <span class="product-tag">フルカバー</span>
+              <span class="tag">エッジ保護</span>
+              <span class="tag">フルカバー</span>
             </div>
-            <h3 class="product-name">S26 エッジ保護クリアケース</h3>
-            <p class="product-price"><small>¥</small>1,680</p>
-            <div class="product-action">商品を見る</div>
+            <h3 class="product-name">S26 エッジ保護クリア</h3>
+            <div class="product-price"><small>¥</small>1,680</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
       </div>
     </section>
 
-    <!-- 耐衝撃ケースランキング -->
+    <!-- 耐衝撃ケース -->
     <section class="section">
-      <div class="section-header">
-        <span class="section-tag">RANKING</span>
-        <h2 class="section-title">耐衝撃ケース <span class="highlight">TOP 5</span></h2>
-        <p class="section-subtitle">大切なS26を守る、堅牢な耐衝撃ケース</p>
+      <div class="section-header animate-fade-up delay-2">
+        <span class="section-tag">PROTECTION</span>
+        <h2 class="section-title">耐衝撃ケース <span>コレクション</span></h2>
+        <p class="section-description">あらゆる衝撃から大切なS26を守る</p>
       </div>
 
-      <div class="product-grid">
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-heavy" class="product-card">
-          <div class="rank-badge"><div class="rank-badge-inner"><span>1</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-heavy.jpg" alt="S26 重装甲耐衝撃ケース">
-            <span class="free-shipping-badge">送料無料</span>
+      <div class="product-grid animate-fade-up delay-3">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-heavy" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-heavy.jpg" alt="S26 重装甲" class="product-image">
+            <span class="rank"><span>1</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">4コーナー</span>
-              <span class="product-tag">最強</span>
+              <span class="tag">4コーナー</span>
+              <span class="tag">最強</span>
             </div>
             <h3 class="product-name">S26 重装甲耐衝撃ケース</h3>
-            <p class="product-price"><small>¥</small>2,480</p>
-            <div class="product-action">商品を見る</div>
+            <div class="product-price"><small>¥</small>2,480</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-slim" class="product-card">
-          <div class="rank-badge silver"><div class="rank-badge-inner"><span>2</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-slim.jpg" alt="S26 スリム耐衝撃ケース">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-slim" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-slim.jpg" alt="S26 スリム耐衝撃" class="product-image">
+            <span class="rank silver"><span>2</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">デザイン性</span>
-              <span class="product-tag">薄型</span>
+              <span class="tag">薄型</span>
+              <span class="tag">デザイン</span>
             </div>
-            <h3 class="product-name">S26 スリム耐衝撃ケース</h3>
-            <p class="product-price"><small>¥</small>1,680</p>
-            <div class="product-action">商品を見る</div>
+h3 class="product-name">S26 スリム耐衝撃ケース</h3>
+            <div class="product-price"><small>¥</small>1,680</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-wallet" class="product-card">
-          <div class="rank-badge bronze"><div class="rank-badge-inner"><span>3</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-wallet.jpg" alt="S26 耐衝撃ウォレット">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-wallet" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-wallet.jpg" alt="S26 耐衝撃ウォレット" class="product-image">
+            <span class="rank bronze"><span>3</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">安定感</span>
-              <span class="product-tag">カード収納</span>
+              <span class="tag">カード</span>
+              <span class="tag">収納</span>
             </div>
-            <h3 class="product-name">S26 耐衝撃ウォレットケース</h3>
-            <p class="product-price"><small>¥</small>2,280</p>
-            <div class="product-action">商品を見る</div>
+            <h3 class="product-name">S26 耐衝撃ウォレット</h3>
+            <div class="product-price"><small>¥</small>2,280</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-ring" class="product-card">
-          <div class="rank-badge"><div class="rank-badge-inner"><span>4</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-ring.jpg" alt="S26 指輪ホルダー付き">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-ring" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-ring.jpg" alt="S36 指輪ホルダー" class="product-image">
+            <span class="rank"><span>4</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">指輪ホルダー</span>
-              <span class="product-tag">便利</span>
+              <span class="tag">指輪</span>
+              <span class="tag">ホルダー</span>
             </div>
-            <h3 class="product-name">S26 指輪ホルダー付き耐衝撃ケース</h3>
-            <p class="product-price"><small>¥</small>1,880</p>
-            <div class="product-action">商品を見る</div>
+            <h3 class="product-name">S26 指輪ホルダー付き</h3>
+            <div class="product-price"><small>¥</small>1,880</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-kids" class="product-card">
-          <div class="rank-badge silver"><div class="rank-badge-inner"><span>5</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-kids.jpg" alt="S26 キッズ用耐衝撃">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-shock-kids" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-shock-kids.jpg" alt="S26 キッズ用" class="product-image">
+            <span class="rank silver"><span>5</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">子供用</span>
-              <span class="product-tag">かわいい</span>
+              <span class="tag">子供</span>
+              <span class="tag">キャラクター</span>
             </div>
-            <h3 class="product-name">S26 キッズ用耐衝撃ケース（キャラデザ）</h3>
-            <p class="product-price"><small>¥</small>1,480</p>
-            <div class="product-action">商品を見る</div>
+            <h3 class="product-name">S26 キッズ用耐衝撃</h3>
+            <div class="product-price"><small>¥</small>1,480</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
       </div>
     </section>
 
-    <!-- レザーケースランキング -->
+    <!-- レザーケース -->
     <section class="section">
-      <div class="section-header">
-        <span class="section-tag">RANKING</span>
-        <h2 class="section-title">レザーケース <span class="highlight">TOP 5</span></h2>
-        <p class="section-subtitle">大人の上品さを演出、厳選レザーケース</p>
+      <div class="section-header animate-fade-up delay-2">
+        <span class="section-tag">PREMIUM</span>
+        <h2 class="section-title">レザーケース <span>コレクション</span></h2>
+        <p class="section-description">上品質な本革を使ったプレミアムケース</p>
       </div>
 
-      <div class="product-grid">
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-black" class="product-card">
-          <div class="rank-badge"><div class="rank-badge-inner"><span>1</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-black.jpg" alt="S26 ブラックレザー">
-            <span class="free-shipping-badge">送料無料</span>
+      <div class="product-grid animate-fade-up delay-3">
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-black" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-black.jpg" alt="S26 ブラックレザー" class="product-image">
+            <span class="rank"><span>1</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">本革</span>
-              <span class="product-tag">クラシック</span>
+              <span class="tag">本革</span>
+              <span class="tag">ブラック</span>
             </div>
             <h3 class="product-name">S26 ブラックレザーケース</h3>
-            <p class="product-price"><small>¥</small>2,480</p>
-            <div class="product-action">商品を見る</div>
+            <div class="product-price"><small>¥</small>2,480</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-brown" class="product-card">
-          <div class="rank-badge silver"><div class="rank-badge-inner"><span>2</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-brown.jpg" alt="S26 ブラウンレザー">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-brown" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-brown.jpg" alt="S26 ブラウンレザー" class="product-image">
+            <span class="rank silver"><span>2</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">ブラウン</span>
-              <span class="product-tag">ナチュラル</span>
+              <span class="tag">本革</span>
+              <span class="tag">ブラウン</span>
             </div>
             <h3 class="product-name">S26 ブラウンレザーケース</h3>
-            <p class="product-price"><small>¥</small>2,480</p>
-            <div class="product-action">商品を見る</div>
+            <div class="product-price"><small>¥</small>2,480</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-wallet" class="product-card">
-          <div class="rank-badge bronze"><div class="rank-badge-inner"><span>3</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-wallet.jpg" alt="S26 レザーウォレット">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-wallet" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-wallet.jpg" alt="S26 レザーウォレット" class="product-image">
+            <span class="rank bronze"><span>3</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">二つ折り</span>
-              <span class="product-tag">カード収納</span>
+              <span class="tag">二つ折り</span>
+              <span class="tag">カード</span>
             </div>
-            <h3 class="product-name">S26 レザーウォレットケース</h3>
-            <p class="product-price"><small>¥</small>3,280</p>
-            <div class="product-action">商品を見る</div>
+            <h3 class="product-name">S26 レザーウォレット</h3>
+            <div class="product-price"><small>¥</small>3,280</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-book" class="product-card">
-          <div class="rank-badge"><div class="rank-badge-inner"><span>4</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-book.jpg" alt="S26 ブックタイプレザー">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-book" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-book.jpg" alt="S26 ブックタイプレザー" class="product-image">
+            <span class="rank"><span>4</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">ブック型</span>
-              <span class="product-tag">高級感</span>
+              <span class="tag">ブック型</span>
+              <span class="tag">高級</span>
             </div>
-            <h3 class="product-name">S26 ブックタイプレザーケース</h3>
-            <p class="product-price"><small>¥</small>2,980</p>
-            <div class="product-action">商品を見る</div>
+            <h3 class="product-name">S26 ブックタイプレザー</h3>
+            <div class="product-price"><small>¥</small>2,980</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
 
-        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-stand" class="product-card">
-          <div class="rank-badge silver"><div class="rank-badge-inner"><span>5</span></div></div>
-          <div class="product-image">
-            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-stand.jpg" alt="S26 レザースタンド">
-            <span class="free-shipping-badge">送料無料</span>
+        <a href="https://item.rakuten.co.jp/mywaysmart/s26-leather-stand" class="product">
+          <div class="product-image-wrapper">
+            <img src="https://shop.r10s.jp/mywaysmart/cabinet/galaxy/s26-leather-stand.jpg" alt="S26 レザースタンド" class="product-image">
+            <span class="rank silver"><span>5</span></span>
+            <span class="badge free">送料無料</span>
           </div>
           <div class="product-info">
             <div class="product-tags">
-              <span class="product-tag">自立</span>
-              <span class="product-tag">動画視聴</span>
+              <span class="tag">自立</span>
+              <span class="tag">視聴</span>
             </div>
             <h3 class="product-name">S26 レザースタンドケース</h3>
-            <p class="product-price"><small>¥</small>2,680</p>
-            <div class="product-action">商品を見る</div>
+            <div class="product-price"><small>¥</small>2,680</div>
+            <div class="product-cta">詳細を見る</div>
           </div>
         </a>
       </div>
     </section>
-  </div>
+  </main>
 
   <!-- フッター -->
   <footer class="footer">
     <div class="footer-logo">FIRME by MYWAYSMART</div>
     <div class="footer-links">
-      <a href="https://www.rakuten.co.jp/mywaysmart/" class="footer-link">店舗情報</a>
+      <a href="https://www.rakuten.co.jp/mywaysmart/" class="footer-link">店舗TOP</a>
       <a href="https://www.rakuten.co.jp/mywaysmart/contact/" class="footer-link">お問い合わせ</a>
-      <a href="https://search.rakuten.co.jp/search/mall/Galaxy%20S26%20FIRME/" class="footer-link">全商品</a>
+      <a href="https://search.rakuten.co.jp/search/mall/Galaxy%20S26/" class="footer-link">全商品</a>
     </div>
-    <p class="footer-copy">© 2026 MYWAYSMART All Rights Reserved.</p>
+    <p class="footer-copy">© 2026 MYWAYSMART. All Rights Reserved.</p>
   </footer>
 
-  <!-- 星を生成するスクリプト -->
   <script>
-    // 星を生成
-    const starsContainer = document.getElementById('stars');
-    for (let i = 0; i < 50; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-      star.style.left = Math.random() * 100 + '%';
-      star.style.top = Math.random() * 100 + '%';
-      star.style.animationDelay = Math.random() * 3 + 's';
-      star.style.opacity = Math.random() * 0.5 + 0.3;
-      starsContainer.appendChild(star);
-    }
-
     // スクロールアニメーション
     const observerOptions = {
       threshold: 0.1,
@@ -1549,7 +1288,7 @@
       });
     }, observerOptions);
 
-    document.querySelectorAll('.product-card, .stat-card').forEach(el => {
+    document.querySelectorAll('.product, .stat, .coupon, .section-header').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(30px)';
       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
